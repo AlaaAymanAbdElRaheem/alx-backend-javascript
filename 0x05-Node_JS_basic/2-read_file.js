@@ -9,8 +9,8 @@ const countStudents = (path) => {
   data = data.split('\n');
   data = data.slice(1, data.length - 1);
   console.log(`Number of students: ${data.length}`);
-  let fields = {};
-  let students = {};
+  const fields = {};
+  const students = {};
   data.forEach((row) => {
     const student = row.split(',');
     const lastField = student.length - 1;
