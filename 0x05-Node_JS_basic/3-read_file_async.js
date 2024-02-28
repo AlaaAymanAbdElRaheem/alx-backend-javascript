@@ -6,9 +6,11 @@ const countStudents = (path) => new Promise((resolve, reject) => {
       reject(new Error('Cannot load the database'));
       return;
     }
+    const msg = [];
     let dataList = data.split('\n');
     dataList = dataList.slice(1, dataList.length - 1);
     console.log(`Number of students: ${dataList.length}`);
+    msg.push(`Number of students: ${dataList.length}`);
     const fields = {};
     const students = {};
     dataList.forEach((row) => {
@@ -25,9 +27,12 @@ const countStudents = (path) => new Promise((resolve, reject) => {
         console.log(
           `Number of students in ${field}: ${fields[field]}. List: ${students[field]}`,
         );
+        msg.push(
+          `Number of students in ${field}: ${fields[field]}. List: ${students[field]}`,
+        );
       }
     }
-    resolve();
+    resolve(msg.join('\n'));
   });
 });
 
