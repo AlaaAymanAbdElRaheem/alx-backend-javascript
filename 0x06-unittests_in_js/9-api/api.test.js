@@ -15,7 +15,7 @@ describe('GET /cart/12', () => {
   it('should return status code 200', (done) => {
     request('http://localhost:7865/cart/12', (error, response, body) => {
       expect(response.statusCode).to.equal(200);
-      expect(body).to.equal('Payment methods for cart :12');
+      expect(body).to.equal('Payment methods for cart 12');
       done();
     });
   });
